@@ -1,5 +1,7 @@
 # Moderator
 
+![](https://steamuserimages-a.akamaihd.net/ugc/773983150587869329/8AC01E4728FA65A1A8FFB842480AEC392BAD05F2/)
+
 ## Overview
 
 This is a mod for the game of Don't Starve Together which is available in the Steam Workshop. 
