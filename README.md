@@ -27,6 +27,10 @@ This mod can add some people as moderator that have a certain previlige such as 
 
 ## Changelog
 
+**Version 1.2.0**
+
+- Now the moderator can not ban, kill or kban each other.
+
 ## License
 
 Released under the [GNU GENERAL PUBLIC LICENSE](https://www.gnu.org/licenses/gpl-3.0.en.html)
