@@ -24,7 +24,7 @@ GLOBAL.Networking_Say = function(guid, userid, name, prefab, message, colour, wh
                     --回档默认
                     if  string.sub(message,1,9) == "+rollback" and string.len(message) == 9 then
                         GLOBAL.TheWorld:DoTaskInTime(5, function(world)
-                            if world.ismastersim and not GLOBAL.TheShard:IsSlave() then
+                            if world.ismastersim and not GLOBAL.TheShard:IsSecondary() then
                                 GLOBAL.TheNet:SendWorldRollbackRequestToServer(0)
                             end
                         end)
@@ -33,7 +33,7 @@ GLOBAL.Networking_Say = function(guid, userid, name, prefab, message, colour, wh
                     if  string.sub(message,1,9) == "+rollback" and string.len(message) == 10 and string.sub(message,10,10) ~= "0" and tonumber(string.sub(message,10,10)) ~= nil then
                         if tonumber(string.sub(message,10,10)) <= 5 then
                             GLOBAL.TheWorld:DoTaskInTime(5, function(world)
-                                if world.ismastersim and not GLOBAL.TheShard:IsSlave() then
+                                if world.ismastersim and not GLOBAL.TheShard:IsSecondary() then
                                     GLOBAL.TheNet:SendWorldRollbackRequestToServer(tonumber(string.sub(message,10,10)))
                                 end
                             end)
