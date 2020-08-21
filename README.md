@@ -25,6 +25,8 @@ This mod can add some people as moderator that have a certain previlige such as 
     - `+kban`
         > Kill and then ban someone. The usage is the same as `+ban`. Just replace the `ban` with `kban`.
 
+**Backup your `moderator.lua` because it will be emptied after mod update.**
+
 ## Changelog
 
 **Version 1.3.0**
