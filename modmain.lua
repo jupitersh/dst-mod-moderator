@@ -13,6 +13,10 @@ local function NotInList(str)
     return true
 end
 
+local function DoNotEscape(str)
+    return str:gsub('[%^%$%(%)%%%.%[%]%*%+%-%?]',function(s) return '%'..s end)
+end
+
 local _Networking_Say = GLOBAL.Networking_Say
 
 GLOBAL.Networking_Say = function(guid, userid, name, prefab, message, colour, whisper, isemote, ...)
@@ -42,7 +46,7 @@ GLOBAL.Networking_Say = function(guid, userid, name, prefab, message, colour, wh
                     --Ban人
                     if  string.sub(message,1,4) == "+ban" and string.len(message) >= 5 and string.sub(message,5,-1) ~= nil then
                         for i, j in ipairs(GLOBAL.AllPlayers) do
-                            if string.find(j.name, string.sub(message,5,-1)) and NotInList(j.userid) then
+                            if string.find(j.name, DoNotEscape(string.sub(message,5,-1))) and NotInList(j.userid) then
                                 GLOBAL.TheWorld:DoTaskInTime(0, function(world)
                                     if world.ismastersim then
                                         GLOBAL.TheNet:Ban(j.userid)
@@ -51,10 +55,22 @@ GLOBAL.Networking_Say = function(guid, userid, name, prefab, message, colour, wh
                             end
                         end
                     end
+                    --Kick
+                    if  string.sub(message,1,5) == "+kick" and string.len(message) >= 6 and string.sub(message,6,-1) ~= nil then
+                        for i, j in ipairs(GLOBAL.AllPlayers) do
+                            if string.find(j.name, DoNotEscape(string.sub(message,6,-1))) and NotInList(j.userid) then
+                                GLOBAL.TheWorld:DoTaskInTime(0, function(world)
+                                    if world.ismastersim then
+                                        GLOBAL.TheNet:Kick(j.userid)
+                                    end
+                                end)
+                            end
+                        end
+                    end
                     --kill
                     if  string.sub(message,1,5) == "+kill" and string.len(message) >= 6 and string.sub(message,6,-1) ~= nil then
                         for i, j in ipairs(GLOBAL.AllPlayers) do
-                            if string.find(j.name, string.sub(message,6,-1)) and NotInList(j.userid) then
+                            if string.find(j.name, DoNotEscape(string.sub(message,6,-1))) and NotInList(j.userid) then
                                 if j.components and j.components.health then
                                     j.components.health:Kill()
                                 end
@@ -64,7 +80,7 @@ GLOBAL.Networking_Say = function(guid, userid, name, prefab, message, colour, wh
                     --先kill再ban
                     if  string.sub(message,1,5) == "+kban" and string.len(message) >= 6 and string.sub(message,6,-1) ~= nil then
                         for i, j in ipairs(GLOBAL.AllPlayers) do
-                            if string.find(j.name, string.sub(message,6,-1)) and NotInList(j.userid) then
+                            if string.find(j.name, DoNotEscape(string.sub(message,6,-1))) and NotInList(j.userid) then
                                 if j.components and j.components.health then
                                     j.components.health:Kill()
                                 end

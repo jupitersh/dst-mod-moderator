@@ -27,6 +27,11 @@ This mod can add some people as moderator that have a certain previlige such as 
 
 ## Changelog
 
+**Version 1.3.0**
+
+- Fixed a bug of escape character of Lua.
+- Added the feature of kicking.
+
 **Version 1.2.0**
 
 - Now the moderator can not ban, kill or kban each other.
