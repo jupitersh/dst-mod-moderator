@@ -5,7 +5,7 @@ Add the user id of the player in the moderator_list.
 for example:
 举个栗子：
 
-moderator_list = {
+moderator = {
     "KU_sdfc6Yza",
     "KU_aUd_fz9g",
     "KU_sfKl7z2m",

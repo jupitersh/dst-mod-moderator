@@ -1,7 +1,7 @@
 name = "Moderator"
 description = ""
 author = "辣椒小皇纸"
-version = "1.3.0"
+version = "1.3.1"
 
 forumthread = ""
 
