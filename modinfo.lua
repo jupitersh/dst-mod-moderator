@@ -13,3 +13,16 @@ dst_compatible = true
 
 icon_atlas = "modicon.xml"
 icon = "modicon.tex"
+
+configuration_options={
+	{
+		name="whitelist",
+		label="白名单成员视为管理员",
+		hover="白名单成员可以使用指令且指令对其无效",
+		options={
+			{description="启用",data=true},
+			{description="禁用",data=false}
+		},
+		default=false
+	}
+}
