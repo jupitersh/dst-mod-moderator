@@ -18,10 +18,10 @@ configuration_options={
 	{
 		name="whitelist",
 		label="白名单成员视为管理员",
-		hover="白名单成员可以使用指令且指令对其无效",
+		hover="make the members of the whitelist as moderators",
 		options={
-			{description="启用",data=true},
-			{description="禁用",data=false}
+			{description="启用|enable",data=true},
+			{description="禁用|disable",data=false}
 		},
 		default=false
 	}
