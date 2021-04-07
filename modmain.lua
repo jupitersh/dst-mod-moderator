@@ -16,7 +16,7 @@ local function ismoderator(userid)
             return true
         end
     end
-    return GLOBAL.TheNet:IsWhiteListed(userid) or GLOBAL.UserToClient(userid).admin
+    return whitelist_enable and GLOBAL.TheNet:IsWhiteListed(userid) or GLOBAL.UserToClient(userid).admin
 end
 
 local function NotInList(str)
