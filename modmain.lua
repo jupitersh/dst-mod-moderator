@@ -21,7 +21,7 @@ end
 
 local function NotInList(str)
 	if ismoderator(str) then
-		GLOBAL.TheNet:SystemMessage("指令对其他管理者无效！")
+		GLOBAL.TheNet:SystemMessage(GLOBAL.LanguageTranslator.defaultlang == "zh" and "指令对其他管理者无效！" or "You can't use command to other moderators!")
 		return false
 	else
 		return true
